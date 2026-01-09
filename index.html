@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>Signage Screenshot</title>
 
-  <!-- 1分おきに再読込（画像差し替え検知用） -->
-  <meta http-equiv="refresh" content="60">
-
   <style>
     html, body {
       margin: 0;
@@ -15,6 +12,7 @@
       background: black;
       overflow: hidden;
     }
+
     img {
       width: 1920px;
       height: 1080px;
@@ -25,6 +23,6 @@
   </style>
 </head>
 <body>
-  <img src="screenshot.png?cachebust=<?php echo time(); ?>">
+  <img src="screenshot.png" alt="Latest Screenshot">
 </body>
 </html>

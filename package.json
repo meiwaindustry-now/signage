@@ -1,0 +1,9 @@
+{
+  "name": "signage-capture",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "sharp": "^0.33.0"
+  }
+}

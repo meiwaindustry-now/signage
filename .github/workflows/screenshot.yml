@@ -1,37 +1,21 @@
-name: Capture Screenshot
+name: Capture Screenshot (Stable)
 
 on:
   schedule:
-    - cron: '*/5 * * * *'   # 5分おき
-  workflow_dispatch:
+    - cron: '*/5 * * * *'   # 5分おき（最短）
+  workflow_dispatch:        # 手動実行も可能
 
 jobs:
   screenshot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      # ① リポジトリをチェックアウト
+      - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ② Chromium をインストール
       - name: Install Chromium
         run: |
           sudo apt-get update
-          sudo apt-get install -y chromium-browser
-
-      - name: Take screenshot
-        run: |
-          chromium-browser \
-            --headless \
-            --disable-gpu \
-            --no-sandbox \
-            --window-size=2560,1440 \
-            --screenshot=screenshot.png \
-            https://solar-carport.meiwajp-dev.link/meiwa-niigata-factory
-
-      - name: Commit screenshot
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add screenshot.png
-          git commit -m "update screenshot" || echo "No changes"
-          git push
+          sudo apt-get install -y chromium
